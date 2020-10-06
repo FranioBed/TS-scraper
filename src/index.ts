@@ -2,7 +2,7 @@ import puppeteer from "puppeteer";
 import fetch from "node-fetch";
 import cheerio from "cheerio";
 
-import {BookManager} from "./bookManager"
+import {BookManager} from "./bookManager";
 
 const url = "http://books.toscrape.com/";
 const bookManager = new BookManager();

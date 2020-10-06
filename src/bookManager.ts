@@ -2,11 +2,13 @@ import cheerio from "cheerio"
 import fs from "fs";
 
 import {Book} from "./book";
+import {log} from "./decorators";
 
 export class BookManager{
 
     books: Book[] = [];
 
+    @log
     parseBooks(content: string){
         let $ = cheerio.load(content);
 
@@ -19,6 +21,7 @@ export class BookManager{
         });
     }
 
+    @log
     saveBooksToJSON(){
         fs.writeFile("result.json", JSON.stringify(this.books, null, "\t"), (err) =>{
             if (err) {
@@ -28,6 +31,7 @@ export class BookManager{
         });
     }
 
+    @log
     saveBooksToExcel(){
         var excel = require('excel4node');
     
